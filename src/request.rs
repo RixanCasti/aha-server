@@ -16,7 +16,7 @@ impl Request {
         let request = buf_reader.lines().next().unwrap().unwrap_or("".to_owned());
         let request = request.split_whitespace().nth(1).unwrap();
 
-        if !(request.matches('&').count() == 2) {
+        if request.matches('&').count() != 2 {
             return Self {
                 method: "".to_owned(),
                 user: User::new("".to_owned(), "".to_owned()),
